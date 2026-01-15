@@ -1,100 +1,112 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Manikanda Moorthy | Portfolio</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            background: #0f172a;
-            color: #e5e7eb;
-        }
-        header {
-            padding: 60px 20px;
-            text-align: center;
-            background: #020617;
-        }
-        h1 {
-            font-size: 40px;
-            margin-bottom: 10px;
-        }
-        h2 {
-            color: #38bdf8;
-            font-weight: normal;
-        }
-        section {
-            padding: 40px 20px;
-            max-width: 900px;
-            margin: auto;
-        }
-        .card {
-            background: #020617;
-            padding: 20px;
-            border-radius: 10px;
-            margin-bottom: 20px;
-        }
-        footer {
-            text-align: center;
-            padding: 20px;
-            background: #020617;
-            color: #94a3b8;
-        }
-        a {
-            color: #38bdf8;
-            text-decoration: none;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Manikanda Moorthy | Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  body { margin:0; font-family: 'Inter', sans-serif; background: #0d1117; color: #c9d1d9; }
+  .container { max-width: 900px; margin: auto; padding: 50px 20px; text-align: center; }
+  a { color: #58a6ff; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  /* Navigation Buttons */
+  .nav { display: flex; justify-content: center; gap: 15px; margin-bottom: 50px; }
+  .nav button { background: #161b22; border: none; padding: 10px 20px; border-radius: 50px; color: #c9d1d9; font-weight: 600; cursor: pointer; transition: all 0.3s; }
+  .nav button:hover, .nav button.active { background: #58a6ff; color: #0d1117; transform: translateY(-2px); }
+
+  /* Sections */
+  section { display: none; text-align: center; }
+  section.active { display: block; animation: fadeIn 0.5s ease; }
+  h1 { font-size: 2.5rem; margin-bottom: 10px; color: #ffffff; }
+  h2 { font-size: 1.3rem; color: #58a6ff; margin-bottom: 20px; }
+  p { font-size: 1.1rem; margin-bottom: 20px; }
+
+  /* Skills */
+  .skills { display: flex; justify-content: center; flex-wrap: wrap; gap: 15px; margin-top: 20px; }
+  .skill { background: #161b22; padding: 10px 20px; border-radius: 999px; font-weight: 600; transition: all 0.3s; }
+  .skill:hover { background: #58a6ff; color: #0d1117; transform: scale(1.05); }
+
+  /* Projects */
+  .project { background: #161b22; padding: 20px; margin: 15px 0; border-radius: 10px; text-align: left; transition: all 0.3s; }
+  .project:hover { background: #1f6feb; transform: translateY(-5px); }
+  .project h3 { margin-bottom: 10px; color: #ffffff; }
+
+  /* Contact / Socials */
+  .contact a { margin: 0 15px; font-weight: 600; transition: color 0.3s ease; }
+  .contact a:hover { color: #1f6feb; }
+
+  @keyframes fadeIn { from {opacity:0;} to {opacity:1;} }
+</style>
 </head>
 <body>
 
-<header>
+<div class="container">
+  <!-- Hero -->
+  <header>
     <h1>Hi, I'm Manikanda Moorthy</h1>
     <h2>AI & Data Science Student | Digital Marketing</h2>
-</header>
+    <p>Quick learner with strong communication & teamwork skills, focused on delivering clean work and continuous improvement.</p>
+  </header>
 
-<section>
-    <div class="card">
-        <h3>About Me</h3>
-        <p>
-            I am an engineering student from Kamaraj College of Engineering and Technology,
-            specialising in Artificial Intelligence and Data Science. I am also skilled in
-            digital marketing. I am a quick learner with strong communication and teamwork
-            skills, focused on clean work and continuous improvement.
-        </p>
+  <!-- Navigation -->
+  <div class="nav">
+    <button class="tab-btn active" data-target="skills">Skills</button>
+    <button class="tab-btn" data-target="projects">Projects</button>
+    <button class="tab-btn" data-target="contact">Contact</button>
+  </div>
+
+  <!-- Sections -->
+  <section id="skills" class="active">
+    <h2>Skills</h2>
+    <div class="skills">
+      <div class="skill">Digital Marketing</div>
+      <div class="skill">Content Marketing</div>
+      <div class="skill">Social Media Management</div>
+      <div class="skill">Canva</div>
+      <div class="skill">SEO (Learning)</div>
     </div>
+  </section>
 
-    <div class="card">
-        <h3>Skills</h3>
-        <ul>
-            <li>Technical: Digital Marketing</li>
-            <li>Marketing: Social Media Marketing, Management & Content Marketing</li>
-            <li>Tools: Canva</li>
-        </ul>
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="project">
+      <h3>Personal Portfolio Website</h3>
+      <p>Showcases my skills and projects.</p>
+      <p><strong>Tools:</strong> Canva, HTML, CSS</p>
     </div>
-
-    <div class="card">
-        <h3>Projects</h3>
-        <p><strong>Personal Portfolio Website</strong><br>
-        Showcases my skills and projects<br>
-        Tools: HTML, CSS, Canva</p>
-
-        <p><strong>Social Media Management for a Consultancy</strong><br>
-        Designed and posted Instagram content<br>
-        Tools: Canva, Social Media Scheduling</p>
+    <div class="project">
+      <h3>Social Media Management for Consultancy</h3>
+      <p>Designed and posted content for Instagram page.</p>
+      <p><strong>Tools:</strong> Canva, Social Media Scheduling</p>
     </div>
+  </section>
 
-    <div class="card">
-        <h3>Contact</h3>
-        <p>Email: manikandanmoorthy36@gmail.com</p>
-        <p>Mobile: +91 7397603361</p>
-    </div>
-</section>
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <p>
+      <a href="mailto:manikandanmoorthy36@gmail.com">Email</a> | 
+      <a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn</a> | 
+      <a href="https://yourportfolio.github.io" target="_blank">Portfolio</a>
+    </p>
+  </section>
+</div>
 
-<footer>
-    © 2026 Manikanda Moorthy
-</footer>
+<script>
+  const tabs = document.querySelectorAll('.tab-btn');
+  const sections = document.querySelectorAll('section');
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+
+      sections.forEach(sec => sec.classList.remove('active'));
+      document.getElementById(tab.dataset.target).classList.add('active');
+    });
+  });
+</script>
 
 </body>
 </html>
