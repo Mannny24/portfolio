@@ -4,109 +4,240 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Manikanda Moorthy | Portfolio</title>
+
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
 <style>
-  body { margin:0; font-family: 'Inter', sans-serif; background: #0d1117; color: #c9d1d9; }
-  .container { max-width: 900px; margin: auto; padding: 50px 20px; text-align: center; }
-  a { color: #58a6ff; text-decoration: none; }
-  a:hover { text-decoration: underline; }
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  scroll-behavior:smooth;
+  font-family:'Inter',sans-serif;
+}
 
-  /* Navigation Buttons */
-  .nav { display: flex; justify-content: center; gap: 15px; margin-bottom: 50px; }
-  .nav button { background: #161b22; border: none; padding: 10px 20px; border-radius: 50px; color: #c9d1d9; font-weight: 600; cursor: pointer; transition: all 0.3s; }
-  .nav button:hover, .nav button.active { background: #58a6ff; color: #0d1117; transform: translateY(-2px); }
+body{
+  background:#0D1117;
+  color:#E0E0E0;
+}
 
-  /* Sections */
-  section { display: none; text-align: center; }
-  section.active { display: block; animation: fadeIn 0.5s ease; }
-  h1 { font-size: 2.5rem; margin-bottom: 10px; color: #ffffff; }
-  h2 { font-size: 1.3rem; color: #58a6ff; margin-bottom: 20px; }
-  p { font-size: 1.1rem; margin-bottom: 20px; }
+/* ===== NAVBAR ===== */
+nav{
+  position:fixed;
+  top:0;
+  right:0;
+  padding:20px 40px;
+  z-index:1000;
+}
 
-  /* Skills */
-  .skills { display: flex; justify-content: center; flex-wrap: wrap; gap: 15px; margin-top: 20px; }
-  .skill { background: #161b22; padding: 10px 20px; border-radius: 999px; font-weight: 600; transition: all 0.3s; }
-  .skill:hover { background: #58a6ff; color: #0d1117; transform: scale(1.05); }
+nav ul{
+  list-style:none;
+  display:flex;
+  gap:25px;
+}
 
-  /* Projects */
-  .project { background: #161b22; padding: 20px; margin: 15px 0; border-radius: 10px; text-align: left; transition: all 0.3s; }
-  .project:hover { background: #1f6feb; transform: translateY(-5px); }
-  .project h3 { margin-bottom: 10px; color: #ffffff; }
+nav a{
+  color:#E0E0E0;
+  font-weight:600;
+  text-decoration:none;
+  position:relative;
+}
 
-  /* Contact / Socials */
-  .contact a { margin: 0 15px; font-weight: 600; transition: color 0.3s ease; }
-  .contact a:hover { color: #1f6feb; }
+nav a::after{
+  content:'';
+  position:absolute;
+  left:0;
+  bottom:-5px;
+  width:0;
+  height:2px;
+  background:#FF5733;
+  transition:0.3s;
+}
 
-  @keyframes fadeIn { from {opacity:0;} to {opacity:1;} }
+nav a:hover::after{
+  width:100%;
+}
+
+/* ===== SECTIONS ===== */
+section{
+  min-height:100vh;
+  padding:120px 10%;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+
+h1{
+  font-size:3rem;
+  margin-bottom:10px;
+}
+
+h2{
+  font-size:1.6rem;
+  color:#FF5733;
+  margin-bottom:20px;
+}
+
+p{
+  max-width:650px;
+  font-size:1.1rem;
+  line-height:1.7;
+}
+
+/* ===== BUTTON ===== */
+.btn{
+  display:inline-block;
+  margin-top:25px;
+  padding:12px 28px;
+  background:#FF5733;
+  color:#fff;
+  border-radius:30px;
+  font-weight:600;
+  transition:0.3s;
+}
+
+.btn:hover{
+  background:#ff7557;
+  transform:translateY(-3px);
+}
+
+/* ===== SKILLS ===== */
+.skills-box{
+  display:flex;
+  flex-wrap:wrap;
+  gap:15px;
+  margin-top:20px;
+}
+
+.skill{
+  background:#1C1F2A;
+  padding:12px 22px;
+  border-radius:25px;
+  transition:0.3s;
+  font-weight:600;
+}
+
+.skill:hover{
+  background:#33C1FF;
+  color:#0D1117;
+}
+
+/* ===== PROJECTS ===== */
+.project{
+  background:#1C1F2A;
+  padding:25px;
+  border-radius:12px;
+  margin-bottom:20px;
+  transition:0.3s;
+}
+
+.project:hover{
+  background:#33C1FF;
+  color:#0D1117;
+  transform:translateY(-5px);
+}
+
+.project h3{
+  margin-bottom:10px;
+}
+
+/* ===== CONTACT ===== */
+.contact-links a{
+  display:inline-block;
+  margin-right:20px;
+  color:#33C1FF;
+  font-weight:600;
+}
+
+.contact-links a:hover{
+  color:#FF5733;
+}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:768px){
+  nav{
+    padding:15px;
+  }
+  nav ul{
+    gap:15px;
+  }
+  h1{
+    font-size:2.2rem;
+  }
+}
 </style>
 </head>
+
 <body>
 
-<div class="container">
-  <!-- Hero -->
-  <header>
-    <h1>Hi, I'm Manikanda Moorthy</h1>
-    <h2>AI & Data Science Student | Digital Marketing</h2>
-    <p>Quick learner with strong communication & teamwork skills, focused on delivering clean work and continuous improvement.</p>
-  </header>
+<!-- NAV -->
+<nav>
+  <ul>
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
 
-  <!-- Navigation -->
-  <div class="nav">
-    <button class="tab-btn active" data-target="skills">Skills</button>
-    <button class="tab-btn" data-target="projects">Projects</button>
-    <button class="tab-btn" data-target="contact">Contact</button>
+<!-- HOME -->
+<section id="home">
+  <h1>Hi, I'm Manikanda Moorthy</h1>
+  <h2>AI & Data Science Student | Digital Marketing</h2>
+  <p>Quick learner with strong communication and teamwork skills, focused on clean execution and continuous improvement.</p>
+  <a href="#contact" class="btn">Hire Me</a>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <h2>About Me</h2>
+  <p>
+    I am an engineering student from Kamaraj College of Engineering and Technology,
+    specializing in Artificial Intelligence and Data Science. I was born in Kovilpatti,
+    Tamil Nadu, and I enjoy building digital solutions and marketing strategies that work.
+  </p>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <h2>Skills</h2>
+  <div class="skills-box">
+    <div class="skill">Digital Marketing</div>
+    <div class="skill">Content Marketing</div>
+    <div class="skill">Social Media Management</div>
+    <div class="skill">Canva</div>
+    <div class="skill">SEO (Learning)</div>
+    <div class="skill">HTML & CSS</div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <h2>Projects</h2>
+
+  <div class="project">
+    <h3>Personal Portfolio Website</h3>
+    <p>Designed a responsive portfolio to showcase skills and projects.</p>
+    <p><b>Tools:</b> HTML, CSS, Canva</p>
   </div>
 
-  <!-- Sections -->
-  <section id="skills" class="active">
-    <h2>Skills</h2>
-    <div class="skills">
-      <div class="skill">Digital Marketing</div>
-      <div class="skill">Content Marketing</div>
-      <div class="skill">Social Media Management</div>
-      <div class="skill">Canva</div>
-      <div class="skill">SEO (Learning)</div>
-    </div>
-  </section>
+  <div class="project">
+    <h3>Social Media Management – Consultancy</h3>
+    <p>Created and managed Instagram content for a consultancy brand.</p>
+    <p><b>Tools:</b> Canva, Scheduling Tools</p>
+  </div>
+</section>
 
-  <section id="projects">
-    <h2>Projects</h2>
-    <div class="project">
-      <h3>Personal Portfolio Website</h3>
-      <p>Showcases my skills and projects.</p>
-      <p><strong>Tools:</strong> Canva, HTML, CSS</p>
-    </div>
-    <div class="project">
-      <h3>Social Media Management for Consultancy</h3>
-      <p>Designed and posted content for Instagram page.</p>
-      <p><strong>Tools:</strong> Canva, Social Media Scheduling</p>
-    </div>
-  </section>
-
-  <section id="contact">
-    <h2>Contact Me</h2>
-    <p>
-      <a href="mailto:manikandanmoorthy36@gmail.com">Email</a> | 
-      <a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn</a> | 
-      <a href="https://yourportfolio.github.io" target="_blank">Portfolio</a>
-    </p>
-  </section>
-</div>
-
-<script>
-  const tabs = document.querySelectorAll('.tab-btn');
-  const sections = document.querySelectorAll('section');
-
-  tabs.forEach(tab => {
-    tab.addEventListener('click', () => {
-      tabs.forEach(t => t.classList.remove('active'));
-      tab.classList.add('active');
-
-      sections.forEach(sec => sec.classList.remove('active'));
-      document.getElementById(tab.dataset.target).classList.add('active');
-    });
-  });
-</script>
+<!-- CONTACT -->
+<section id="contact">
+  <h2>Contact</h2>
+  <div class="contact-links">
+    <a href="mailto:manikandanmoorthy36@gmail.com">Email</a>
+    <a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn</a>
+    <a href="https://github.com/yourgithub" target="_blank">GitHub</a>
+  </div>
+</section>
 
 </body>
 </html>
