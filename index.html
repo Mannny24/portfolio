@@ -141,16 +141,36 @@ p{
   margin-bottom:10px;
 }
 
-/* ===== CONTACT ===== */
-.contact-links a{
-  display:inline-block;
-  margin-right:20px;
-  color:#33C1FF;
-  font-weight:600;
+/* ===== FLOATING BUTTONS ===== */
+.floating-btn{
+  position:fixed;
+  bottom:25px;
+  width:55px;
+  height:55px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:24px;
+  color:#fff;
+  z-index:2000;
+  text-decoration:none;
+  box-shadow:0 10px 25px rgba(0,0,0,0.4);
+  transition:0.3s;
 }
 
-.contact-links a:hover{
-  color:#FF5733;
+.whatsapp{
+  right:25px;
+  background:#25D366;
+}
+
+.email{
+  left:25px;
+  background:#FF5733;
+}
+
+.floating-btn:hover{
+  transform:scale(1.1);
 }
 
 /* ===== RESPONSIVE ===== */
@@ -194,8 +214,8 @@ p{
   <h2>About Me</h2>
   <p>
     I am an engineering student from Kamaraj College of Engineering and Technology,
-    specializing in Artificial Intelligence and Data Science. I was born in Kovilpatti,
-    Tamil Nadu, and I enjoy building digital solutions and marketing strategies that work.
+    specializing in Artificial Intelligence and Data Science. Born in Kovilpatti,
+    Tamil Nadu, I enjoy building digital solutions and marketing strategies that work.
   </p>
 </section>
 
@@ -206,9 +226,7 @@ p{
     <div class="skill">Digital Marketing</div>
     <div class="skill">Content Marketing</div>
     <div class="skill">Social Media Management</div>
-    <div class="skill">Canva</div>
-    <div class="skill">SEO (Learning)</div>
-    <div class="skill">HTML & CSS</div>
+    <div class="skill">Canva</div
   </div>
 </section>
 
@@ -232,12 +250,23 @@ p{
 <!-- CONTACT -->
 <section id="contact">
   <h2>Contact</h2>
-  <div class="contact-links">
-    <a href="mailto:manikandanmoorthy36@gmail.com">Email</a>
-    <a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn</a>
-    <a href="https://github.com/yourgithub" target="_blank">GitHub</a>
-  </div>
+  <p>You can directly message or email me using the floating buttons.</p>
 </section>
+
+<!-- FLOATING WHATSAPP -->
+<a class="floating-btn whatsapp"
+   href="https://wa.me/918248213361?text=Hi%20Manikanda,%20I%20visited%20your%20portfolio%20and%20would%20like%20to%20connect%20with%20you."
+   target="_blank"
+   aria-label="WhatsApp">
+   💬
+</a>
+
+<!-- FLOATING EMAIL -->
+<a class="floating-btn email"
+   href="mailto:manikandanmoorthy36@gmail.com?subject=Project%20Inquiry&body=Hi%20Manikanda,%20I%20saw%20your%20portfolio%20and%20would%20like%20to%20discuss%20a%20project."
+   aria-label="Email">
+   ✉️
+</a>
 
 </body>
 </html>
