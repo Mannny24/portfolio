@@ -8,6 +8,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
 <style>
+/* ================= BASE ================= */
 *{
   margin:0;
   padding:0;
@@ -19,15 +20,34 @@
 body{
   background:#0D1117;
   color:#E0E0E0;
+  overflow-x:hidden;
 }
 
-/* ===== NAVBAR ===== */
+/* Soft animated background glow */
+body::before{
+  content:'';
+  position:fixed;
+  inset:-200px;
+  background:radial-gradient(circle at top right, rgba(255,87,51,0.15), transparent 40%),
+             radial-gradient(circle at bottom left, rgba(51,193,255,0.15), transparent 40%);
+  z-index:-1;
+  animation: bgMove 12s linear infinite;
+}
+
+@keyframes bgMove{
+  0%{transform:translate(0,0);}
+  50%{transform:translate(40px,-40px);}
+  100%{transform:translate(0,0);}
+}
+
+/* ================= NAVBAR ================= */
 nav{
   position:fixed;
   top:0;
   right:0;
   padding:20px 40px;
   z-index:1000;
+  backdrop-filter: blur(8px);
 }
 
 nav ul{
@@ -47,7 +67,7 @@ nav a::after{
   content:'';
   position:absolute;
   left:0;
-  bottom:-5px;
+  bottom:-6px;
   width:0;
   height:2px;
   background:#FF5733;
@@ -58,13 +78,19 @@ nav a:hover::after{
   width:100%;
 }
 
-/* ===== SECTIONS ===== */
+/* ================= SECTIONS ================= */
 section{
   min-height:100vh;
   padding:120px 10%;
   display:flex;
   flex-direction:column;
   justify-content:center;
+  animation: sectionFade 0.9s ease forwards;
+}
+
+@keyframes sectionFade{
+  from{opacity:0; transform:translateY(20px);}
+  to{opacity:1; transform:translateY(0);}
 }
 
 h1{
@@ -84,7 +110,7 @@ p{
   line-height:1.7;
 }
 
-/* ===== BUTTON ===== */
+/* ================= BUTTON ================= */
 .btn{
   display:inline-block;
   margin-top:25px;
@@ -94,6 +120,7 @@ p{
   border-radius:30px;
   font-weight:600;
   transition:0.3s;
+  box-shadow:0 10px 30px rgba(255,87,51,0.35);
 }
 
 .btn:hover{
@@ -101,7 +128,7 @@ p{
   transform:translateY(-3px);
 }
 
-/* ===== SKILLS ===== */
+/* ================= SKILLS ================= */
 .skills-box{
   display:flex;
   flex-wrap:wrap;
@@ -110,38 +137,39 @@ p{
 }
 
 .skill{
-  background:#1C1F2A;
+  background:rgba(28,31,42,0.75);
+  backdrop-filter:blur(10px);
   padding:12px 22px;
   border-radius:25px;
-  transition:0.3s;
+  transition:0.35s;
   font-weight:600;
+  box-shadow:0 10px 25px rgba(0,0,0,0.3);
 }
 
 .skill:hover{
   background:#33C1FF;
   color:#0D1117;
+  transform:translateY(-6px) scale(1.05);
 }
 
-/* ===== PROJECTS ===== */
+/* ================= PROJECTS ================= */
 .project{
-  background:#1C1F2A;
+  background:rgba(28,31,42,0.75);
+  backdrop-filter:blur(12px);
   padding:25px;
-  border-radius:12px;
+  border-radius:14px;
   margin-bottom:20px;
-  transition:0.3s;
+  transition:0.35s;
+  box-shadow:0 15px 35px rgba(0,0,0,0.4);
 }
 
 .project:hover{
   background:#33C1FF;
   color:#0D1117;
-  transform:translateY(-5px);
+  transform:translateY(-8px);
 }
 
-.project h3{
-  margin-bottom:10px;
-}
-
-/* ===== FLOATING BUTTONS ===== */
+/* ================= FLOATING BUTTONS ================= */
 .floating-btn{
   position:fixed;
   bottom:25px;
@@ -155,8 +183,15 @@ p{
   color:#fff;
   z-index:2000;
   text-decoration:none;
-  box-shadow:0 10px 25px rgba(0,0,0,0.4);
+  box-shadow:0 12px 30px rgba(0,0,0,0.45);
   transition:0.3s;
+  animation:pulse 2.5s infinite;
+}
+
+@keyframes pulse{
+  0%{box-shadow:0 0 0 0 rgba(255,255,255,0.15);}
+  70%{box-shadow:0 0 0 15px rgba(255,255,255,0);}
+  100%{box-shadow:0 0 0 0 rgba(255,255,255,0);}
 }
 
 .whatsapp{
@@ -175,27 +210,20 @@ p{
 }
 
 .floating-btn:hover{
-  transform:scale(1.1);
+  transform:scale(1.15);
 }
 
-/* ===== RESPONSIVE ===== */
+/* ================= RESPONSIVE ================= */
 @media(max-width:768px){
-  nav{
-    padding:15px;
-  }
-  nav ul{
-    gap:15px;
-  }
-  h1{
-    font-size:2.2rem;
-  }
+  nav{padding:15px;}
+  nav ul{gap:15px;}
+  h1{font-size:2.2rem;}
 }
 </style>
 </head>
 
 <body>
 
-<!-- NAV -->
 <nav>
   <ul>
     <li><a href="#home">Home</a></li>
@@ -206,24 +234,18 @@ p{
   </ul>
 </nav>
 
-<!-- HOME -->
 <section id="home">
   <h1>Hi, I'm Manikanda Moorthy</h1>
   <h2>AI & Data Science Student | Digital Marketing</h2>
   <p>Quick learner with strong communication and teamwork skills, focused on clean execution and continuous improvement.</p>
+  <a href="#contact" class="btn">Hire Me</a>
 </section>
 
-<!-- ABOUT -->
 <section id="about">
   <h2>About Me</h2>
-  <p>
-    I am an engineering student from Kamaraj College of Engineering and Technology,
-    specializing in Artificial Intelligence and Data Science. Born in Kovilpatti,
-    Tamil Nadu, I enjoy building digital solutions and marketing strategies that work.
-  </p>
+  <p>I am an engineering student from Kamaraj College of Engineering and Technology, specializing in Artificial Intelligence and Data Science.</p>
 </section>
 
-<!-- SKILLS -->
 <section id="skills">
   <h2>Skills</h2>
   <div class="skills-box">
@@ -231,53 +253,36 @@ p{
     <div class="skill">Content Marketing</div>
     <div class="skill">Social Media Management</div>
     <div class="skill">Canva</div>
+    <div class="skill">SEO (Learning)</div>
+    <div class="skill">HTML & CSS</div>
   </div>
 </section>
 
-<!-- PROJECTS -->
 <section id="projects">
   <h2>Projects</h2>
-
   <div class="project">
     <h3>Personal Portfolio Website</h3>
     <p>Designed a responsive portfolio to showcase skills and projects.</p>
-    <p><b>Tools:</b> HTML, CSS, Canva</p>
   </div>
-
   <div class="project">
     <h3>Social Media Management – Consultancy</h3>
-    <p>Created and managed Instagram content for a consultancy brand.</p>
-    <p><b>Tools:</b> Canva, Scheduling Tools</p>
+    <p>Created and managed Instagram content.</p>
   </div>
 </section>
 
-<!-- CONTACT -->
 <section id="contact">
   <h2>Contact</h2>
   <p>You can directly message, call, or email me using the floating buttons.</p>
 </section>
 
-<!-- FLOATING WHATSAPP -->
 <a class="floating-btn whatsapp"
    href="https://wa.me/918248213361?text=Hi%20Manikanda,%20I%20visited%20your%20portfolio%20and%20would%20like%20to%20connect%20with%20you."
-   target="_blank"
-   aria-label="WhatsApp">
-   💬
-</a>
+   target="_blank">💬</a>
 
-<!-- FLOATING CALL -->
-<a class="floating-btn call"
-   href="tel:7397603361"
-   aria-label="Call">
-   📞
-</a>
+<a class="floating-btn call" href="tel:7397603361">📞</a>
 
-<!-- FLOATING EMAIL -->
 <a class="floating-btn email"
-   href="mailto:manikandanmoorthy36@gmail.com?subject=Project%20Inquiry&body=Hi%20Manikanda,%20I%20saw%20your%20portfolio%20and%20would%20like%20to%20discuss%20a%20project."
-   aria-label="Email">
-   ✉️
-</a>
+   href="mailto:manikandanmoorthy36@gmail.com?subject=Project%20Inquiry">✉️</a>
 
 </body>
 </html>
